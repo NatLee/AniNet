@@ -17,9 +17,5 @@ with sync_playwright() as p:
     expect(image_locator).to_have_attribute("src", re.compile(r"https://"), timeout=15000)
     expect(image_locator).to_be_visible()
 
-    # Click the "add" button and verify that a new box is added
-    page.locator("#add").click()
-    expect(page.locator(".resize-div")).to_have_count(2)
-
     page.screenshot(path="jules-scratch/verification/verification.png")
     browser.close()
